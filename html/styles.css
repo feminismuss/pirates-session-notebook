@@ -1,0 +1,171 @@
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  letter-spacing: 0.03rem;
+  text-wrap: pretty;
+  line-height: 1.64;
+}
+
+body {
+  margin: 0 auto;
+  width: clamp(450px, 50vw, 800px);
+  font-family: Helvetica;
+  color: #222;
+  padding: 20px;
+  background-color: rgb(198, 211, 198);
+}
+
+h1 {
+  font-size: 1.5rem;
+  text-align: center;
+}
+
+h2 {
+  font-size: 1.2rem;
+  text-align: center;
+}
+
+form,
+fieldset {
+  display: grid;
+  grid-template-columns: clamp(8rem, 8rem, 16rem) 1fr;
+  gap: 16px 8px;
+  align-items: center;
+}
+
+button {
+  padding: 5px;
+  border: none;
+  border-radius: 4px;
+  background-color: rgb(90, 118, 118);
+  font-weight: 500;
+  color: white;
+  cursor: pointer;
+}
+
+input[type="submit"],
+input[type="reset"] {
+  cursor: pointer;
+  padding: 5px;
+  border: none;
+  border-radius: 4px;
+}
+
+label {
+  font-size: smaller;
+  letter-spacing: 0.04rem;
+  cursor: pointer;
+}
+
+hr {
+  border: 0.1px solid rgba(0, 0, 0, 0.1);
+  width: 61%;
+  padding: 0 10px;
+  grid-column: 1/ -1;
+}
+
+fieldset {
+  grid-column: 1/ -1;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  border-radius: 4px;
+  padding: 4px;
+  margin: 0;
+}
+
+legend {
+  grid-column: 1/-1;
+  font-weight: 900;
+}
+
+.controlls {
+  grid-template-columns: 1fr 1fr;
+  border-radius: 0;
+  border: none;
+  border-top: 1px solid rgba(0, 0, 0, 0.1);
+  gap: 20px;
+  padding: 16px 0;
+}
+
+form {
+  border: 0.1px solid rgba(0, 0, 0, 0.1);
+  padding: 10px;
+  border-radius: 6px;
+}
+
+input,
+select {
+  padding: 8px;
+  border-radius: 4px;
+  border: none;
+  height: 2rem;
+}
+
+fieldset div {
+  grid-column: 1/-1;
+  display: flex;
+  align-items: center;
+  gap: 0 16px;
+  height: 24px;
+}
+
+fieldset div input {
+  width: 32px;
+}
+
+.custom-checkbox-container {
+  padding: 16px 8px;
+}
+
+.custom-checkbox-container input[type="checkbox"] {
+  /* Visually hide the input, but keep it accessible for screen readers and tabbing */
+  position: absolute;
+  opacity: 0;
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  padding: 0;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap; /* Required to prevent line breaks */
+  border: 0;
+}
+
+.custom-checkbox-container label {
+  /* Make the label clickable and position the custom box */
+  display: inline-block;
+  cursor: pointer;
+  padding-left: 48px; /* Space for the custom box */
+  position: relative; /* Context for the absolute pseudo-element */
+  line-height: 32px; /* Align text with the custom box */
+}
+
+/* ::before creates the empty custom square */
+.custom-checkbox-container label::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 32px;
+  height: 32px;
+  background-color: #fff;
+  border-radius: 8px; /* Optional: Rounded corners */
+}
+
+/* Styling when the checkbox is checked */
+.custom-checkbox-container input[type="checkbox"]:checked + label::before {
+  background-color: #6aa262; /* Change background color */
+}
+
+/* Create the checkmark using a rotated border */
+.custom-checkbox-container input[type="checkbox"]:checked + label::after {
+  content: "";
+  position: absolute;
+  left: 9px; /* Fine-tune position */
+  width: 14px;
+  height: 24px;
+  border: solid white;
+  border-radius: 2px;
+  border-width: 0 3px 3px 0; /* Only right and bottom borders */
+  transform: rotate(45deg); /* Rotate to form the checkmark shape */
+}
