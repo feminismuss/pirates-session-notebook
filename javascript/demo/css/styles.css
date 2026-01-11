@@ -1,0 +1,38 @@
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    font-family: system-ui;
+    padding: 20px;
+    min-height: 100dvh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 2rem;
+    background-color: #eee;
+}
+
+button {
+    background-color: dodgerblue;
+    color: #eee;
+    padding: 1rem 2rem;
+    border: none;
+    border-radius: 12px;
+    cursor: pointer;
+    transition: all 0.25s ease-in-out;
+}
+
+button:hover {
+    scale: 1.03;
+    background-color: rgb(30, 79, 255);
+}
+
+.dark {
+    background-color: #333;
+    color: #eee;
+}
